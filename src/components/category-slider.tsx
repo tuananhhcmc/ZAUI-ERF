@@ -22,6 +22,7 @@ export default function CategorySlider() {
           <img
             src={category.image}
             className="w-6 h-6 rounded-full bg-skeleton"
+            alt = "error"
           />
           <p className="text-xs whitespace-nowrap">{category.name}</p>
         </TransitionLink>
