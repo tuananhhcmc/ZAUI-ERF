@@ -7,8 +7,14 @@ export default function Banners() {
 
   return (
     <Carousel
-      slides={banners.map((banner) => (
-        <img className="w-full rounded" src={banner} />
+      slides={banners.map((banner, index) => (
+        <img
+          key={index}
+          src={banner}
+          alt={`Banner ${index + 1}`}
+          className="w-full rounded object-cover"
+          loading="lazy"
+        />
       ))}
     />
   );
