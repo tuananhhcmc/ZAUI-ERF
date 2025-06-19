@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "categoryId": 1,
-    "name": "Táo Fuji Hảo Hạng - 1kg",
+    "categoryId": 8,
+    "name": "Xoài cát thơm Nha Trang",
     "price": 67900,
     "originalPrice": 69900,
-    "image": "https://zalo-miniapp.github.io/zaui-market/dummy/product/apples.png",
+    "image": "https://photo.salekit.com/uploads/salekit_72cbd0b2627bdd6bad46587c483f1dc5/xoai-cat-nha-trangg.jpg",
     "detail": "Táo Fuji tươi ngon, giòn và ngọt tự nhiên. Được tuyển chọn kỹ càng từ những vườn cây chất lượng cao."
   },
   {
     "id": 2,
-    "categoryId": 1,
-    "name": "Bắp cải xanh tươi - 300g",
+    "categoryId": 8,
+    "name": "Chả cốm Lợn quế",
     "price": 27900,
     "originalPrice": 30000,
-    "image": "https://zalo-miniapp.github.io/zaui-market/dummy/product/cabbage.png",
+    "image": "https://photo.salekit.com/uploads/salekit_72cbd0b2627bdd6bad46587c483f1dc5/cha-com-lon-que.jpg",
     "detail": "Bắp cải xanh tươi ngon, giàu vitamin và chất xơ, lý tưởng cho các món salad và canh rau."
   },
   {
     "id": 3,
-    "categoryId": 8,
-    "name": "Kem sô cô la mát lạnh - 500ml",
+    "categoryId": 1,
+    "name": "Bồ kết khô nguyên trái",
     "price": 313000,
     "originalPrice": 500000,
-    "image": "https://zalo-miniapp.github.io/zaui-market/dummy/product/creamy.png",
+    "image": "https://photo.salekit.com/uploads/salekit_72cbd0b2627bdd6bad46587c483f1dc5/bo-ket.jpg",
     "detail": "Kem sô cô la mịn màng với vị sô cô la đậm đà, mang lại cảm giác sảng khoái mỗi khi thưởng thức."
   },
   {
     "id": 4,
-    "categoryId": 6,
-    "name": "Bánh quy bơ Danisa - 200g",
+    "categoryId": 1,
+    "name": "Xà bông thảo dược Vietket - 100g",
     "price": 150000,
     "originalPrice": 300000,
-    "image": "https://zalo-miniapp.github.io/zaui-market/dummy/product/danisa.png",
+    "image": "https://photo.salekit.com/uploads/salekit_72cbd0b2627bdd6bad46587c483f1dc5/xa-bong-vietket-3.jpg",
     "detail": "Bánh quy bơ giòn tan, thơm lừng hương bơ tự nhiên, hoàn hảo cho bữa trà chiều."
   },
   {
