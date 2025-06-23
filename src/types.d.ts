@@ -20,6 +20,7 @@ export interface Product {
 }
 
 export interface Category {
+  icon: string;
   id: number;
   name: string;
   image: string;
@@ -57,6 +58,8 @@ export type Delivery =
       type: "shipping";
     } & ShippingAddress)
   | {
+      name: string | undefined;
+      address: string | undefined;
       type: "pickup";
       stationId: number;
     };

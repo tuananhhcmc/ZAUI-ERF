@@ -32,6 +32,13 @@ module.exports = {
         lg: ["16px", "22px"],
         xl: ["18px", "24px"],
       },
+            theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Roboto', 'Arial', 'sans-serif'],
+          },
+        },
+      }
     },
   },
 };

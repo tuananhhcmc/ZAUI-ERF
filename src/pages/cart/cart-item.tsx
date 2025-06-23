@@ -8,7 +8,7 @@ import { selectedCartItemIdsState } from "@/state";
 import { useEffect, useState } from "react";
 import { Icon } from "zmp-ui";
 
-const SWIPE_TO_DELTE_OFFSET = 80;
+  const SWIPE_TO_DELTE_OFFSET = 80;
 
 export default function CartItem(props: CartItemProps) {
   const [quantity, setQuantity] = useState(props.quantity);

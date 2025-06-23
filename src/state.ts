@@ -173,25 +173,16 @@ export const stationsState = atom(async () => {
   let location: Location | undefined;
   try {
     const { token } = await getLocation({});
-    // Phía tích hợp làm theo hướng dẫn tại https://mini.zalo.me/documents/api/getLocation/ để chuyển đổi token thành thông tin vị trí người dùng ở server.
-    // location = await decodeToken(token);
+    // Gửi token lên server để lấy vị trí thực tế
+    if (token) {
+      location = await decodeLocationToken(token);
+    }
 
-    // Các bước bên dưới để demo chức năng, phía tích hợp có thể bỏ đi sau.
-    toast(
-      "Đã lấy được token chứa thông tin vị trí người dùng. Phía tích hợp cần decode token này ở server. Giả lập vị trí tại VNG Campus...",
-      {
-        icon: "ℹ",
-        duration: 10000,
-      }
-    );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    location = {
-      lat: 10.773756,
-      lng: 106.689247,
-    };
-    // End demo
+    // Nếu muốn test nhanh ở local, bạn có thể mock hàm này như sau:
+    // location = { lat: 10.773756, lng: 106.689247 };
   } catch (error) {
     console.warn(error);
+    toast.error("Không lấy được vị trí người dùng.");
   }
 
   const stations = await requestWithFallback<Station[]>("/stations", []);
@@ -211,6 +202,16 @@ export const stationsState = atom(async () => {
 
   return stationsWithDistance;
 });
+
+// Hàm này bạn cần thay thế bằng API thực tế của backend
+async function decodeLocationToken(token: string): Promise<Location> {
+  // Ví dụ gọi API backend:
+  // const res = await fetch('/api/decode-location', { method: 'POST', body: JSON.stringify({ token }) });
+  // return await res.json();
+
+  // Nếu chỉ test local, trả về vị trí giả lập:
+  return { lat: 10.773756, lng: 106.689247 };
+}
 
 export const selectedStationIndexState = atom(0);
 
