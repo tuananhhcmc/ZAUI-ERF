@@ -13,6 +13,9 @@ import { Product } from "@/types";
 import { getConfig } from "@/utils/template";
 import { authorize, createOrder, openChat } from "zmp-sdk/apis";
 import { useAtomCallback } from "jotai/utils";
+import { HMAC } from "hmac-auth-express";
+import CryptoJS from "crypto-js";
+// const;
 
 export function useRealHeight(
   element: MutableRefObject<HTMLDivElement | null>,
@@ -121,6 +124,21 @@ export function useCheckout() {
   return async () => {
     try {
       await requestInfo();
+
+      const appId = import.meta.env.VITE_APP_ID;
+      const privateKey = import.meta.env.VITE_PRIVATE_KEY;
+      const orderId = Date.now().toString(); // hoặc uuid
+
+      // Tạo chuỗi data
+      const data = `appId=${appId}&orderId=${orderId}&privateKey=${privateKey}`;
+      // Tạo mac
+      console.log(data);
+
+      const mac = CryptoJS.HmacSHA256(data, privateKey).toString(
+        CryptoJS.enc.Hex
+      );
+      console.log("MAC:", mac);
+
       await createOrder({
         amount: totalAmount,
         desc: "Thanh toán đơn hàng",
@@ -130,6 +148,10 @@ export function useCheckout() {
           price: item.product.price,
           quantity: item.quantity,
         })),
+        mac,
+        success(res) {
+          console.log("Thanh toán thành công:", res);
+        },
       });
       setCart([]);
       refreshNewOrders();
