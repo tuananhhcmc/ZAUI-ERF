@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   categoriesStateUpwrapped,
   loadableUserInfoState,
-  userInfoState,
 } from "@/state";
 import { useMemo } from "react";
 import { useRouteHandle } from "@/hooks";
@@ -35,9 +34,10 @@ export default function Header() {
 
   return (
     <div
-      className="w-full flex flex-col px-4 bg-primary text-primaryForeground pt-st overflow-hidden bg-no-repeat bg-right-top"
+      className="w-full flex flex-col px-4 pt-4 pb-2 bg-green-600 text-white rounded-b-2xl shadow-lg overflow-hidden bg-no-repeat bg-right-top"
       style={{
         backgroundImage: `url(${headerIllus})`,
+        backgroundSize: "auto 80%",
       }}
     >
       <div className="w-full min-h-12 pr-[90px] flex py-2 space-x-2 items-center">
@@ -45,16 +45,17 @@ export default function Header() {
           <>
             <img
               src={getConfig((c) => c.template.logoUrl)}
-              className="flex-none w-8 h-8 rounded-full"
+              className="flex-none w-10 h-10 rounded-full border-2 border-white shadow"
+              alt="Logo"
             />
             <TransitionLink to="/stations" className="flex-1 overflow-hidden">
               <div className="flex items-center space-x-1">
-                <h1 className="text-lg font-bold">
+                <h1 className="text-lg font-bold truncate">
                   {getConfig((c) => c.template.shopName)}
                 </h1>
                 <Icon icon="zi-chevron-right" />
               </div>
-              <p className="overflow-x-auto whitespace-nowrap text-2xs">
+              <p className="overflow-x-auto whitespace-nowrap text-xs opacity-90">
                 {getConfig((c) => c.template.shopAddress)}
               </p>
             </TransitionLink>
@@ -63,7 +64,7 @@ export default function Header() {
           <>
             {showBack && (
               <div
-                className="py-1 px-2 cursor-pointer"
+                className="py-1 px-2 cursor-pointer hover:bg-green-700 rounded transition"
                 onClick={() => navigate(-1)}
               >
                 <Icon icon="zi-arrow-left" />
@@ -74,25 +75,32 @@ export default function Header() {
         )}
       </div>
       {handle?.search && (
-        <div className="w-full py-2 flex space-x-2">
-          <SearchBar
-            onFocus={() => {
-              if (location.pathname !== "/search") {
-                navigate("/search", { viewTransition: true });
-              }
-            }}
-          />
+        <div className="w-full py-2 flex space-x-2 items-center">
+          <div className="flex-1">
+            <SearchBar
+              className="bg-white text-black rounded-lg shadow px-4 py-2"
+              onFocus={() => {
+                if (location.pathname !== "/search") {
+                  navigate("/search", { viewTransition: true });
+                }
+              }}
+            />
+          </div>
           <TransitionLink to="/profile">
             {userInfo.state === "hasData" && userInfo.data ? (
               <img
-                className="w-8 h-8 rounded-full"
+                className="w-9 h-9 rounded-full border-2 border-white shadow"
                 src={userInfo.data.avatar}
+                alt="User"
               />
             ) : (
               <DefaultUserAvatar
-                width={32}
-                height={32}
-                className={userInfo.state === "loading" ? "animate-pulse" : ""}
+                width={36}
+                height={36}
+                className={
+                  "bg-white rounded-full border-2 border-green-600 " +
+                  (userInfo.state === "loading" ? "animate-pulse" : "")
+                }
               />
             )}
           </TransitionLink>
