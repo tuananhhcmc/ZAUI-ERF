@@ -149,10 +149,8 @@ export function useCheckout() {
           quantity: item.quantity,
         })),
         mac,
-        success(res) {
-          console.log("Thanh toán thành công:", res);
-        },
       });
+      // Nếu không throw lỗi, coi như thành công:
       setCart([]);
       refreshNewOrders();
       navigate("/orders", {

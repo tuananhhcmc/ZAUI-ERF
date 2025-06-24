@@ -21,10 +21,11 @@
   "dependencies": {
     "@react-spring/web": "^9.7.4",
     "@use-gesture/react": "^10.3.1",
-    "crypto-js": "^4.2.0",
     "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "embla-carousel-autoplay": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
+    "hmac-auth-express": "^9.0.0",
     "jotai": "^2.10.0",
     "mongoose": "^8.16.0",
     "prop-types": "^15.8.1",
@@ -36,6 +37,7 @@
     "zmp-ui": "^1.11.6"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.8.2",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
